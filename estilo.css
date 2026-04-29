@@ -1,0 +1,13 @@
+body {
+  text-align: justify;
+}
+
+h1, h2, h3 {
+  text-align: left;
+  color: #1a2a6c;
+}
+
+/* Esto añade un espacio extra entre párrafos para que se vea más limpio */
+p {
+  margin-bottom: 15px;
+}

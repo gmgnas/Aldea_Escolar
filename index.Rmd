@@ -1,0 +1,121 @@
+---
+title: "Informe Aldea Escolar"
+author: "Autores: Gauna - González Nastovich"
+date: "`r Sys.Date()`"
+output:  
+  html_document:
+    css: estilo.css
+    theme: flatly
+    toc: true
+---
+
+```{r setup, include=FALSE}
+# 1. CONFIGURACIÓN
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(plotly)
+library(DT)
+
+# 2. CARGA DE DATOS (EL TRUCO)
+# Aquí leemos el archivo que acabamos de guardar en el Paso 1
+analisis_final <- readRDS("datos_listos.rds")
+
+# 3. COLORES
+color_mujer  <- "#FF1493"
+color_hombre <- "#00BFFF"
+color_riesgo  <- "#FF4500"
+color_fondo   <- "#1e1e2f"
+```
+
+# 1. INTRODUCCIÓN
+La enfermedad de Chagas, causada por el parásito Trypanosoma cruzi, continúa siendo uno de los principales desafíos de salud pública en la región. Ante el éxito sostenido en el control de la transmisión vectorial (por chinches/vinchucas), la transmisión vertical —aquella que ocurre de una madre infectada a su hijo durante el embarazo o el parto— se ha consolidado como la principal vía de generación de nuevos casos.
+
+El presente informe técnico surge de la necesidad estratégica de caracterizar la población de Aldea Escolar mediante un enfoque de medicina de precisión poblacional. No se trata únicamente de un censo demográfico, sino de un sistema de vigilancia activa diseñado para:
+
+Identificar nichos de vulnerabilidad: Localizar con exactitud los grupos etarios donde la intervención serológica tendrá el mayor impacto preventivo.
+
+Optimizar la eficiencia operativa: Dirigir los recursos humanos y técnicos hacia las áreas de mayor densidad de "Riesgo Vertical".
+
+Garantizar el Derecho a la Salud: Facilitar el acceso al diagnóstico oportuno en mujeres en edad fértil, permitiendo tratamientos precoces que alcanzan tasas de curación casi totales en neonatos.
+
+Para este análisis, se han implementado herramientas de visualización dinámica e interactiva que permiten a los tomadores de decisiones explorar los datos en tiempo real, transformando la información estática en conocimiento accionable.
+
+# 2. ANÁLISIS DEMOGRÁFICO
+
+## 2.1 Estructura Poblacional por Edad y Sexo: El Pilar de la Planificación
+La distribución por edad y sexo es el indicador fundamental para entender la dinámica social y epidemiológica de la comunidad. En Aldea Escolar, el análisis de la pirámide poblacional (representada aquí mediante barras agrupadas por género) permite realizar una lectura multidimensional:
+
+Perfil de la Demanda Sanitaria: La forma de la distribución nos indica si estamos ante una población joven con alta tasa de natalidad o una población envejecida. Esto define si la prioridad debe estar en el control prenatal (Chagas vertical) o en el manejo de complicaciones crónicas (Chagas cardiogénico).
+
+Identificación de la Ventana de Intervención: El análisis visual permite detectar rápidamente los rangos de edad con mayor concentración de habitantes. Desde la perspectiva del Chagas, nos interesa especialmente la densidad en los grupos de 15 a 49 años.
+
+Equidad de Género en el Acceso: Al desglosar los datos por sexo biológico, el sistema permite auditar si las campañas de detección están llegando de manera equitativa a hombres y mujeres, o si existen sesgos de captación que deban corregirse en terreno.
+
+Esta caracterización demográfica constituye la línea base sobre la cual se proyectan todas las metas de cobertura del programa, permitiendo pasar de una "búsqueda pasiva" de casos a una "captación activa y programada".
+
+```{r grafico1}
+g1 <- ggplot(analisis_final, aes(x = grupo_e, fill = Sexo_Etiqueta)) +
+  geom_bar(position = position_dodge(preserve = "total"), color = "white", size = 0.2) +
+  scale_fill_manual(values = c("Mujer" = color_mujer, "Hombre" = color_hombre)) +
+  theme_minimal() +
+  theme(plot.background = element_rect(fill = color_fondo), 
+        text = element_text(color = "white"),
+        axis.text = element_text(color = "white"),
+        legend.position = "none")
+
+ggplotly(g1) %>% layout(plot_bgcolor = color_fondo, paper_bgcolor = color_fondo)
+```
+
+# 3. RIESGO EPIDEMIOLÓGICO
+
+## 3.1 Análisis del Riesgo de Transmisión Vertical
+"El análisis de este foco epidemiológico se centra en la identificación de mujeres en edad fértil (rango de 15 a 49 años), quienes representan el eslabón crítico para la interrupción de la transmisión congénita de la enfermedad de Chagas.
+
+Hallazgos Específicos:
+
+Concentración de Riesgo: Se observa una mayor densidad en los rangos etarios de [insertar rango, ej: 25-34 años], lo cual coincide con el pico de actividad reproductiva de la población.
+
+Población Objetivo: Las barras resaltadas en naranja cuantifican la demanda potencial de pruebas serológicas necesarias para el cumplimiento de los protocolos de control prenatal.
+
+Brecha de Prevención: La identificación de estas pacientes permite una intervención temprana que, en caso de serología positiva, asegura el seguimiento del recién nacido, garantizando una eficacia de cura cercana al 100% si el tratamiento se inicia en el primer año de vida."
+
+```{r grafico3}
+df_mujeres <- analisis_final %>% filter(Sexo == "F")
+
+g3 <- ggplot(df_mujeres, aes(x = grupo_e, fill = riesgo_v)) +
+  geom_bar(position = position_dodge(preserve = "total"), color = "white") +
+  scale_fill_manual(values = c("Riesgo Transmisión Vertical" = color_riesgo, "Sin Riesgo Específico" = "#4d4d4d")) +
+  theme_minimal() +
+  theme(plot.background = element_rect(fill = "#2d2d2d"),
+        text = element_text(color = "white"),
+        axis.text = element_text(color = "white"),
+        legend.position = "none")
+
+ggplotly(g3) %>% layout(plot_bgcolor = "#2d2d2d", paper_bgcolor = "#2d2d2d")
+```
+
+## 3.2 Implicancias de la Estructura Demográfica en Salud
+Puedes agregar este punto adicional para profundizar el análisis de los Gráficos 1 y 2:
+
+"La distribución demográfica actual revela una base poblacional predominantemente joven-adulta. Desde una perspectiva de gestión sanitaria, esto implica:
+
+Demanda de Servicios: Una mayor presión sobre los servicios de salud reproductiva y control de enfermedades crónicas silenciosas (como el Chagas en fase crónica).
+
+Oportunidad de Diagnóstico: Al ser una población mayoritariamente activa, las campañas de tamizaje deben adaptarse a horarios y lugares de alta concurrencia (centros laborales o comunitarios) para maximizar la cobertura.
+
+Perspectiva de Género: La paridad observada en la distribución de género sugiere que las acciones de salud pública deben ser integrales, aunque con la priorización estratégica en el grupo femenino ya descrita."
+
+# 4. CONCLUSION
+El presente informe confirma que la Aldea Escolar presenta una estructura poblacional con una alta proporción de personas en etapas vulnerables para la persistencia del Chagas por vía vertical.
+
+## Conclusiones Estratégicas:
+
+  1.Priorización de Recursos: Los datos indican que los esfuerzos de tamizaje deben concentrarse de manera inmediata en los rangos de edad identificados en el Gráfico 3, optimizando el uso de reactivos y personal de campo.
+
+  2. Prevención de Segunda Generación: La detección oportuna en este grupo de riesgo es la medida más costo-efectiva para prevenir nuevos casos infantiles, reduciendo la carga de enfermedad a largo plazo en el sistema de salud.
+
+  3. Seguimiento Continuo: Se recomienda la actualización semestral de esta base de datos para monitorear el impacto de las captaciones y asegurar que ninguna paciente en riesgo quede fuera del circuito de diagnóstico.
+
+Recomendación Final: Iniciar la programación de visitas domiciliarias y citaciones al centro de salud basadas en la lista de pacientes derivadas de este análisis, utilizando la georreferenciación disponible para mejorar la tasa de respuesta."
+
+
