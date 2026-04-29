@@ -11,7 +11,7 @@ output:
 
 ```{r setup, include=FALSE}
 # 1. CONFIGURACIÓN
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.align = "center")
 library(tidyverse)
 library(plotly)
 library(DT)
@@ -54,16 +54,32 @@ Equidad de Género en el Acceso: Al desglosar los datos por sexo biológico, el 
 Esta caracterización demográfica constituye la línea base sobre la cual se proyectan todas las metas de cobertura del programa, permitiendo pasar de una "búsqueda pasiva" de casos a una "captación activa y programada".
 
 ```{r grafico1}
-g1 <- ggplot(analisis_final, aes(x = grupo_e, fill = Sexo_Etiqueta)) +
+# Crear una copia con nombres amigables para visualización
+analisis_final_viz <- analisis_final %>%
+  mutate(`Grupo Etario` = grupo_e,
+         `Sexo` = Sexo_Etiqueta)
+
+g1 <- ggplot(analisis_final_viz, aes(x = `Grupo Etario`, fill = `Sexo`)) +
   geom_bar(position = position_dodge(preserve = "total"), color = "white", size = 0.2) +
   scale_fill_manual(values = c("Mujer" = color_mujer, "Hombre" = color_hombre)) +
+  labs(y = "Cantidad", x = "Grupo Etario", fill = "Sexo") +
   theme_minimal() +
   theme(plot.background = element_rect(fill = color_fondo), 
         text = element_text(color = "white"),
         axis.text = element_text(color = "white"),
-        legend.position = "none")
+        axis.title = element_text(color = "white"),
+        legend.position = "none",
+        plot.title = element_text(hjust = 0.5))
 
-ggplotly(g1) %>% layout(plot_bgcolor = color_fondo, paper_bgcolor = color_fondo)
+ggplotly(g1) %>% 
+  layout(plot_bgcolor = color_fondo, 
+         paper_bgcolor = color_fondo,
+         yaxis = list(title = "Cantidad"),
+         xaxis = list(title = "Grupo Etario"),
+         autosize = TRUE,
+         width = NULL,
+         height = NULL) %>%
+  config(displayModeBar = FALSE)
 ```
 
 # 3. RIESGO EPIDEMIOLÓGICO
@@ -79,19 +95,41 @@ Población Objetivo: Las barras resaltadas en naranja cuantifican la demanda pot
 
 Brecha de Prevención: La identificación de estas pacientes permite una intervención temprana que, en caso de serología positiva, asegura el seguimiento del recién nacido, garantizando una eficacia de cura cercana al 100% si el tratamiento se inicia en el primer año de vida."
 
-```{r grafico3}
-df_mujeres <- analisis_final %>% filter(Sexo == "F")
+```{r grafico2}
+df_mujeres <- analisis_final %>% 
+  filter(Sexo == "F") %>%
+  mutate(`Grupo Etario` = grupo_e,
+         `Categoría Riesgo` = case_when(
+           riesgo_v == "Riesgo Transmisión Vertical" ~ "Riesgo Transmisión Vertical",
+           TRUE ~ "Sin Riesgo Vertical"
+         ))
 
-g3 <- ggplot(df_mujeres, aes(x = grupo_e, fill = riesgo_v)) +
-  geom_bar(position = position_dodge(preserve = "total"), color = "white") +
-  scale_fill_manual(values = c("Riesgo Transmisión Vertical" = color_riesgo, "Sin Riesgo Específico" = "#4d4d4d")) +
+g2 <- ggplot(df_mujeres, aes(x = `Grupo Etario`, fill = `Categoría Riesgo`)) +
+  geom_bar(position = position_dodge(preserve = "total"), color = "white", width = 0.7) +
+  scale_fill_manual(values = c("Riesgo Transmisión Vertical" = color_riesgo, 
+                               "Sin Riesgo Vertical" = "#4d4d4d")) +
+  labs(y = "Cantidad", x = "Grupo Etario", fill = NULL) +
   theme_minimal() +
   theme(plot.background = element_rect(fill = "#2d2d2d"),
         text = element_text(color = "white"),
-        axis.text = element_text(color = "white"),
-        legend.position = "none")
+        axis.text = element_text(color = "white", size = 11),
+        axis.title = element_text(color = "white", size = 13, margin = margin(b = 15)),
+        axis.title.x = element_text(margin = margin(t = 20)),
+        legend.position = "bottom",
+        legend.text = element_text(color = "white", size = 11),
+        legend.title = element_blank(),
+        plot.title = element_text(hjust = 0.5),
+        plot.margin = margin(t = 10, r = 20, b = 30, l = 20))
 
-ggplotly(g3) %>% layout(plot_bgcolor = "#2d2d2d", paper_bgcolor = "#2d2d2d")
+ggplotly(g2, width = NULL, height = NULL) %>% 
+  layout(plot_bgcolor = "#2d2d2d", 
+         paper_bgcolor = "#2d2d2d",
+         yaxis = list(title = "Cantidad", titlefont = list(size = 13)),
+         xaxis = list(title = "Grupo Etario", titlefont = list(size = 13),
+                      tickfont = list(size = 11)),
+         autosize = TRUE,
+         margin = list(t = 50, r = 50, b = 80, l = 50)) %>%
+  config(displayModeBar = FALSE)
 ```
 
 ## 3.2 Implicancias de la Estructura Demográfica en Salud
