@@ -148,11 +148,11 @@ El presente informe confirma que la Aldea Escolar presenta una estructura poblac
 
 ## Conclusiones Estratégicas:
 
-  1.Priorización de Recursos: Los datos indican que los esfuerzos de tamizaje deben concentrarse de manera inmediata en los rangos de edad identificados en el Gráfico 3, optimizando el uso de reactivos y personal de campo.
+1.Priorización de Recursos: Los datos indican que los esfuerzos de tamizaje deben concentrarse de manera inmediata en los rangos de edad identificados en el Gráfico 3, optimizando el uso de reactivos y personal de campo.
 
-  2. Prevención de Segunda Generación: La detección oportuna en este grupo de riesgo es la medida más costo-efectiva para prevenir nuevos casos infantiles, reduciendo la carga de enfermedad a largo plazo en el sistema de salud.
+2. Prevención de Segunda Generación: La detección oportuna en este grupo de riesgo es la medida más costo-efectiva para prevenir nuevos casos infantiles, reduciendo la carga de enfermedad a largo plazo en el sistema de salud.
 
-  3. Seguimiento Continuo: Se recomienda la actualización semestral de esta base de datos para monitorear el impacto de las captaciones y asegurar que ninguna paciente en riesgo quede fuera del circuito de diagnóstico.
+3. Seguimiento Continuo: Se recomienda la actualización semestral de esta base de datos para monitorear el impacto de las captaciones y asegurar que ninguna paciente en riesgo quede fuera del circuito de diagnóstico.
 
 Recomendación Final: Iniciar la programación de visitas domiciliarias y citaciones al centro de salud basadas en la lista de pacientes derivadas de este análisis, utilizando la georreferenciación disponible para mejorar la tasa de respuesta."
 
