@@ -78,7 +78,7 @@ ggplotly(g1) %>%
 "Aunque el Chagas no es una enfermedad de gran impacto en la población general de Chubut, en grupos específicos con antecedentes en zonas endémicas, la vigilancia es una herramienta fundamental en la prevención.
 <div style="margin-left: 30px;">
 
-  **● Mujeres en Edad Fértil (MEF):** El análisis identifica a las mujeres de 15 a 49 años de la comunidad boliviana en Aldea Escolar como el eslabón crítico. La detección en este grupo permite tratar antes del embarazo y asegurar el control del recién nacido.
+  **● Mujeres en Edad Fértil (MEF):** El análisis identifica a las mujeres de 15 a 44 años de la comunidad boliviana en Aldea Escolar como el eslabón crítico. La detección en este grupo permite tratar antes del embarazo y asegurar el control del recién nacido.
 
   **● Impacto en el Sistema Local:** Al identificar y tratar a las personas en el nivel primario (Puesto Sanitario), se evita que en el futuro el sistema de salud provincial deba atender complicaciones crónicas (cardiopatías) de mayor costo y complejidad.
 "
