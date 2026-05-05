@@ -31,6 +31,10 @@ color_fondo   <- "#1e1e2f"
 La enfermedad de Chagas en la Provincia del Chubut presenta un perfil epidemiológico particular. Al ser una zona sin transmisión vectorial activa, el desafío sanitario se desplaza hacia la prevención de la transmisión vertical y la atención de la población migrante proveniente de regiones endémicas.
 El presente informe técnico caracteriza la población de Aldea Escolar, con especial énfasis en la comunidad de origen boliviano residente en el paraje. El objetivo no es la vigilancia de insectos vectores, sino la implementación de un sistema de vigilancia activa sobre casos importados y la prevención de la transmisión vertical, garantizando el acceso al diagnóstico oportuno en una población que, por su origen, presenta una mayor prevalencia histórica de la patología.
 
+```{r foto-aldea, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("C:/Users/ZOONOSIS NB/proyecto_chagas/Aldea.jpeg")
+```
+
 # 2. ANÁLISIS DEMOGRÁFICO
 
 ## 2.1 Caracterización de la Población Objetivo
