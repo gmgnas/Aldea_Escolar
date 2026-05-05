@@ -28,7 +28,7 @@ color_fondo   <- "#1e1e2f"
 ```
 
 # 1. INTRODUCCIÓN
-La enfermedad de Chagas en la Provincia del Chubut presenta un perfil epidemiológico particular. Al ser una zona sin transmisión vectorial activa, el desafío sanitario se desplaza hacia la transmisión vertical y la atención de la población migrante proveniente de regiones endémicas.
+La enfermedad de Chagas en la Provincia del Chubut presenta un perfil epidemiológico particular. Al ser una zona sin transmisión vectorial activa, el desafío sanitario se desplaza hacia la prevención de la transmisión vertical y la atención de la población migrante proveniente de regiones endémicas.
 El presente informe técnico caracteriza la población de Aldea Escolar, con especial énfasis en la comunidad de origen boliviano residente en el paraje. El objetivo no es la vigilancia de insectos vectores, sino la implementación de un sistema de vigilancia activa sobre casos importados y la prevención de la transmisión vertical, garantizando el acceso al diagnóstico oportuno en una población que, por su origen, presenta una mayor prevalencia histórica de la patología.
 
 # 2. ANÁLISIS DEMOGRÁFICO
@@ -42,7 +42,7 @@ En Aldea Escolar, la presencia de familias de origen boliviano redefine las prio
 
 **● Barreras de Acceso**: Evaluar si la distancia de 30 km hacia los centros de mayor complejidad en Esquel actúa como una barrera de acceso al diagnóstico oportuno.
 </div>
-
+### Grafico 1: Caracterizción según Grupo Etario y Sexo - N =59
 ```{r grafico1}
 # Crear una copia con nombres amigables para visualización
 analisis_final_viz <- analisis_final %>%
@@ -71,6 +71,7 @@ ggplotly(g1) %>%
          height = NULL) %>%
   config(displayModeBar = FALSE)
 ```
+Fuente: Elaboración propia - 17/04/2026
 
 # 3. RIESGO EPIDEMIOLÓGICO: EL FOCO VERTICAL
 
@@ -83,6 +84,7 @@ Aunque el Chagas no es una enfermedad de gran impacto en la población general d
   **● Impacto en el Sistema Local:** Al identificar y tratar a las personas en el nivel primario (Puesto Sanitario), se evita que en el futuro el sistema de salud provincial deba atender complicaciones crónicas (cardiopatías) de mayor costo y complejidad.
 
 </div>
+### Grafico 2: Grupo de Riego según Edad - Mujeres - N = 27
 ```{r grafico2}
 df_mujeres <- analisis_final %>% 
   filter(Sexo == "F") %>%
@@ -119,12 +121,13 @@ ggplotly(g2, width = NULL, height = NULL) %>%
          margin = list(t = 50, r = 50, b = 80, l = 50)) %>%
   config(displayModeBar = FALSE)
 ```
+Fuente: Elaboración propia - 17/04/2026
 
 ## 3.2 Ventaja del Tratamiento Oportuno
 
 El análisis de la población de Aldea Escolar demuestra que, si bien Chubut es una zona protegida de la transmisión vectorial, existen riesgos de vulnerabilidad vinculados a la movilidad poblacional.
 
-# 4. CONCLUSION
+# 4. CONCLUSIÓN
 El presente informe confirma que la Aldea Escolar presenta una estructura poblacional con una alta proporción de personas en etapas vulnerables para la persistencia del Chagas por vía vertical.
 
 ## Recomendaciones:
