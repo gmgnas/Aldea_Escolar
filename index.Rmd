@@ -132,12 +132,14 @@ Fuente: Elaboración propia - 17/04/2026
 El análisis de la población de Aldea Escolar demuestra que, si bien Chubut es una zona protegida de la transmisión vectorial, existen riesgos de vulnerabilidad vinculados a la movilidad poblacional.
 
 # 4. CONCLUSIÓN
-El presente informe confirma que la Aldea Escolar presenta una estructura poblacional con una alta proporción de personas en etapas vulnerables para la persistencia del Chagas por vía vertical.
+El análisis de la población de Aldea Escolar demuestra que, si bien Chubut es una zona protegida de la transmisión vectorial, existen riesgos de vulnerabilidad vinculados a la movilidad poblacional.
+
+Este informe confirma que Aldea Escolar presenta una estructura poblacional con una alta proporción de personas en etapas vulnerables para la persistencia del Chagas por transmisión vertical y crónico.
 
 ## Recomendaciones:
 <div style="margin-left: 30px;">
 
-1. **Detección Focalizada:** Hay que dejar de esperar a que los migrantes busquen ayuda y usar los recursos con los que contamos para ir nosotros tras ellos, transformando la "búsqueda pasiva" en una acción dirigida y culturalmente pertinente.
+1. **Detección Focalizada:** las acciones deben focalizarse en el tamizaje de la población migrante de zonas endémicas, de acuerdo a las normativas vigentes.
 
 2. **Coordinación con Esquel:** Fortalecer la capacidad de respuesta de los equipos especialmente del primer nivel de atención garantizando que el origen geográfico de los habitantes no sea una limitante para el acceso a salud.
 
