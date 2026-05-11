@@ -39,7 +39,7 @@ knitr::include_graphics("C:/Users/ZOONOSIS NB/proyecto_chagas/Aldea.jpeg")
 
 ## 2.1 Caracterización de la Población Objetivo
 
-En Aldea Escolar, la presencia de familias de origen boliviano redefine las prioridades de salud pública local. El análisis de la pirámide poblacional en este contexto permite:
+En Aldea Escolar, la presencia de familias provenientes de Bolivia redefine las prioridades de salud pública local. El análisis de la pirámide poblacional en este contexto permite:
 
 ::: {style="margin-left: 30px;"}
 **● Identificación del Perfil Epidemiológico:** detectar las familias que residan en este paraje con antecedentes de residencia en zonas geográficas consideradas endémicas de Chagas (Bolivia).
