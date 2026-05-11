@@ -42,7 +42,7 @@ knitr::include_graphics("C:/Users/ZOONOSIS NB/proyecto_chagas/Aldea.jpeg")
 En Aldea Escolar, la presencia de familias provenientes de Bolivia redefine las prioridades de salud pública local. El análisis de la pirámide poblacional en este contexto permite:
 
 ::: {style="margin-left: 30px;"}
-**● Identificación del Perfil Epidemiológico:** detectar las familias que residan en este paraje con antecedentes de residencia en zonas geográficas consideradas endémicas de Chagas (Bolivia).
+**● Identificación del Perfil Epidemiológico:** Detectar las familias que residan en este paraje con antecedentes de residencia en zonas geográficas consideradas endémicas de Chagas (Bolivia).
 
 **● Enfoque de Atención primaria de salud:** Dirigir los esfuerzos de control y tamizaje específicamente hacia las mujeres en edad fértil de esta comunidad, donde existe riesgo de transmisión vertical.
 
@@ -146,7 +146,7 @@ Este informe confirma que Aldea Escolar presenta una estructura poblacional con 
 ## Recomendaciones:
 
 ::: {style="margin-left: 30px;"}
-1.  **Detección Focalizada:** las acciones deben focalizarse en el tamizaje de la población migrante de zonas endémicas, de acuerdo a las normativas vigentes.
+1.  **Detección Focalizada:** Las acciones deben focalizarse en el tamizaje de la población migrante de zonas endémicas, de acuerdo a las normativas vigentes.
 
 2.  **Coordinación con Esquel:** Fortalecer la capacidad de respuesta de los equipos especialmente del primer nivel de atención garantizando que el origen geográfico de los habitantes no sea una limitante para el acceso a salud.
 
